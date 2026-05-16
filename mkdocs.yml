@@ -1,0 +1,21 @@
+site_name: Template API Docs
+
+nav:
+  - Home: README.md
+  - API Reference:
+      - OpenAPI: openapi.json
+
+theme:
+  name: material
+
+plugins:
+  - search
+  - openapi:
+      spec_dir: .
+      spec_url: openapi.json
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - toc:
+      permalink: true
