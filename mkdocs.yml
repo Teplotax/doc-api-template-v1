@@ -1,7 +1,5 @@
 site_name: Template API Docs
 
-docs_dir: .
-
 nav:
   - Home: README.md
   - API Reference:
