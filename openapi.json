@@ -1,0 +1,633 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Template API Gateway",
+    "description": "Template API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/helloWorld": {
+      "get": {
+        "tags": [
+          "Hello World"
+        ],
+        "summary": "Consulta hello world",
+        "description": "Endpoint para consultar hello world\n",
+        "operationId": "get/hello-world",
+        "parameters": [
+          {
+            "name": "x-correlationid",
+            "in": "header",
+            "description": "Código para identificar requisição",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Responde hello world",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "Hello World"
+                    }
+                  }
+                },
+                "examples": {
+                  "HelloWorldResponse": {
+                    "summary": "Exemplo de resposta hello world",
+                    "value": {
+                      "message": "Hello World"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "Error message"
+                    },
+                    "exceptionType": {
+                      "type": "string",
+                      "description": "Exception type"
+                    }
+                  }
+                },
+                "examples": {
+                  "400": {
+                    "value": {
+                      "message": "Conteúdo da mensagem",
+                      "exceptionType": "Bad Request"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "Error message"
+                    },
+                    "exceptionType": {
+                      "type": "string",
+                      "description": "Exception type"
+                    }
+                  }
+                },
+                "examples": {
+                  "401": {
+                    "value": {
+                      "message": "Conteúdo da mensagem",
+                      "exceptionType": "Unauthorized"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "Error message"
+                    },
+                    "exceptionType": {
+                      "type": "string",
+                      "description": "Exception type"
+                    }
+                  }
+                },
+                "examples": {
+                  "403": {
+                    "value": {
+                      "message": "Conteúdo da mensagem",
+                      "exceptionType": "Forbidden"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method Not Allowed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "Error message"
+                    },
+                    "exceptionType": {
+                      "type": "string",
+                      "description": "Exception type"
+                    }
+                  }
+                },
+                "examples": {
+                  "405": {
+                    "value": {
+                      "message": "Conteúdo da mensagem",
+                      "exceptionType": "Method Not Allowed"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "Error message"
+                    },
+                    "exceptionType": {
+                      "type": "string",
+                      "description": "Exception type"
+                    }
+                  }
+                },
+                "examples": {
+                  "500": {
+                    "value": {
+                      "message": "Conteúdo da mensagem",
+                      "exceptionType": "Internal Server Error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "Error message"
+                    },
+                    "exceptionType": {
+                      "type": "string",
+                      "description": "Exception type"
+                    }
+                  }
+                },
+                "examples": {
+                  "503": {
+                    "value": {
+                      "message": "Conteúdo da mensagem",
+                      "exceptionType": "Service Unavailable"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-amazon-apigateway-integration": {
+          "timeoutInMillis": 14000,
+          "type": "http_proxy",
+          "httpMethod": "GET",
+          "uri": "http://application-name-lb-688f86f9aa9c196a.elb.sa-east-1.amazonaws.com:8080/helloWorld",
+          "responses": {
+            "default": {
+              "statusCode": "500"
+            }
+          },
+          "passthroughBehavior": "when_no_match",
+          "connectionType": "VPC_LINK",
+          "connectionId": "o8b250",
+          "requestParameters": {
+            "integration.request.header.x-correlationid": "method.request.header.x-correlationid"
+          }
+        },
+        "x-amazon-apigateway-request-validator": "params-only"
+      }
+    }
+  },
+  "components": {
+    "parameters": {
+      "x_correlationid": {
+        "name": "x-correlationid",
+        "in": "header",
+        "description": "Código para identificar requisição",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "schemas": {
+      "HelloWorldResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Hello World"
+          }
+        }
+      },
+      "ErrorMessage": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Error message"
+          },
+          "exceptionType": {
+            "type": "string",
+            "description": "Exception type"
+          }
+        }
+      }
+    },
+    "examples": {
+      "400": {
+        "value": {
+          "message": "Conteúdo da mensagem",
+          "exceptionType": "Bad Request"
+        }
+      },
+      "401": {
+        "value": {
+          "message": "Conteúdo da mensagem",
+          "exceptionType": "Unauthorized"
+        }
+      },
+      "403": {
+        "value": {
+          "message": "Conteúdo da mensagem",
+          "exceptionType": "Forbidden"
+        }
+      },
+      "404": {
+        "value": {
+          "message": "Conteúdo da mensagem",
+          "exceptionType": "Not Found"
+        }
+      },
+      "405": {
+        "value": {
+          "message": "Conteúdo da mensagem",
+          "exceptionType": "Method Not Allowed"
+        }
+      },
+      "422": {
+        "value": {
+          "message": "Conteúdo da mensagem",
+          "exceptionType": "Unprocessable Entity"
+        }
+      },
+      "500": {
+        "value": {
+          "message": "Conteúdo da mensagem",
+          "exceptionType": "Internal Server Error"
+        }
+      },
+      "503": {
+        "value": {
+          "message": "Conteúdo da mensagem",
+          "exceptionType": "Service Unavailable"
+        }
+      },
+      "504": {
+        "value": {
+          "message": "Conteúdo da mensagem",
+          "exceptionType": "Gateway Timeout"
+        }
+      },
+      "HelloWorldResponse": {
+        "summary": "Exemplo de resposta hello world",
+        "value": {
+          "message": "Hello World"
+        }
+      },
+      "200HelloWorldResponse": {
+        "summary": "Exemplo de resposta hello world",
+        "value": {
+          "message": "Hello World"
+        }
+      }
+    },
+    "responses": {
+      "400": {
+        "description": "Bad Request",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "Error message"
+                },
+                "exceptionType": {
+                  "type": "string",
+                  "description": "Exception type"
+                }
+              }
+            },
+            "examples": {
+              "400": {
+                "value": {
+                  "message": "Conteúdo da mensagem",
+                  "exceptionType": "Bad Request"
+                }
+              }
+            }
+          }
+        }
+      },
+      "401": {
+        "description": "Unauthorized",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "Error message"
+                },
+                "exceptionType": {
+                  "type": "string",
+                  "description": "Exception type"
+                }
+              }
+            },
+            "examples": {
+              "401": {
+                "value": {
+                  "message": "Conteúdo da mensagem",
+                  "exceptionType": "Unauthorized"
+                }
+              }
+            }
+          }
+        }
+      },
+      "403": {
+        "description": "Forbidden",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "Error message"
+                },
+                "exceptionType": {
+                  "type": "string",
+                  "description": "Exception type"
+                }
+              }
+            },
+            "examples": {
+              "403": {
+                "value": {
+                  "message": "Conteúdo da mensagem",
+                  "exceptionType": "Forbidden"
+                }
+              }
+            }
+          }
+        }
+      },
+      "404": {
+        "description": "Not Found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "Error message"
+                },
+                "exceptionType": {
+                  "type": "string",
+                  "description": "Exception type"
+                }
+              }
+            },
+            "examples": {
+              "404": {
+                "value": {
+                  "message": "Conteúdo da mensagem",
+                  "exceptionType": "Not Found"
+                }
+              }
+            }
+          }
+        }
+      },
+      "405": {
+        "description": "Method Not Allowed",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "Error message"
+                },
+                "exceptionType": {
+                  "type": "string",
+                  "description": "Exception type"
+                }
+              }
+            },
+            "examples": {
+              "405": {
+                "value": {
+                  "message": "Conteúdo da mensagem",
+                  "exceptionType": "Method Not Allowed"
+                }
+              }
+            }
+          }
+        }
+      },
+      "422": {
+        "description": "Unprocessable Entity",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "Error message"
+                },
+                "exceptionType": {
+                  "type": "string",
+                  "description": "Exception type"
+                }
+              }
+            },
+            "examples": {
+              "422": {
+                "value": {
+                  "message": "Conteúdo da mensagem",
+                  "exceptionType": "Unprocessable Entity"
+                }
+              }
+            }
+          }
+        }
+      },
+      "500": {
+        "description": "Internal Server Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "Error message"
+                },
+                "exceptionType": {
+                  "type": "string",
+                  "description": "Exception type"
+                }
+              }
+            },
+            "examples": {
+              "500": {
+                "value": {
+                  "message": "Conteúdo da mensagem",
+                  "exceptionType": "Internal Server Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "503": {
+        "description": "Service Unavailable",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "Error message"
+                },
+                "exceptionType": {
+                  "type": "string",
+                  "description": "Exception type"
+                }
+              }
+            },
+            "examples": {
+              "503": {
+                "value": {
+                  "message": "Conteúdo da mensagem",
+                  "exceptionType": "Service Unavailable"
+                }
+              }
+            }
+          }
+        }
+      },
+      "504": {
+        "description": "Gateway Timeout",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "Error message"
+                },
+                "exceptionType": {
+                  "type": "string",
+                  "description": "Exception type"
+                }
+              }
+            },
+            "examples": {
+              "504": {
+                "value": {
+                  "message": "Conteúdo da mensagem",
+                  "exceptionType": "Gateway Timeout"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "x-amazon-apigateway-request-validators": {
+    "all": {
+      "validateRequestBody": true,
+      "validateRequestParameters": true
+    },
+    "params-only": {
+      "validateRequestBody": false,
+      "validateRequestParameters": true
+    }
+  },
+  "x-amazon-apigateway-gateway-responses": {
+    "UNAUTHORIZED": {
+      "statusCode": 401,
+      "responseTemplates": {
+        "application/json": "{\n \"message\": \"Expired Token\" \n }"
+      }
+    }
+  },
+  "x-amazon-apigateway-policy": {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Principal": "*",
+        "Action": "execute-api:Invoke",
+        "Resource": "*"
+      }
+    ]
+  }
+}
