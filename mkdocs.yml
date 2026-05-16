@@ -3,7 +3,7 @@ site_name: Template API Docs
 nav:
   - Home: README.md
   - API Reference:
-      - OpenAPI: openapi.json
+      - OpenAPI: docs/openapi.json
 
 theme:
   name: material
@@ -13,7 +13,7 @@ plugins:
   - openapi_markdown:
       enabled: true
       openapi_file: openapi.json
-      output_file: README.md
+      output_file: openapi.md
 
 markdown_extensions:
   - admonition
