@@ -3,7 +3,7 @@ site_name: Template API Docs
 nav:
   - Home: README.md
   - API Reference:
-      - OpenAPI: docs/openapi.json
+      - OpenAPI: openapi.json
 
 theme:
   name: material
