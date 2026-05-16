@@ -10,9 +10,7 @@ theme:
 
 plugins:
   - search
-  - openapi:
-      spec_dir: .
-      spec_url: openapi.json
+  - openapi
 
 markdown_extensions:
   - admonition
