@@ -11,7 +11,7 @@
         "tags": [
           "Hello World"
         ],
-        "summary": "Consulta hello world",
+        "summary": "Consulta Hello World",
         "description": "Endpoint para consultar hello world\n",
         "operationId": "get/hello-world",
         "parameters": [
