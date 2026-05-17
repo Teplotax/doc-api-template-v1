@@ -15,7 +15,7 @@ plugins:
   - search
   - openapi_markdown:
       enabled: true
-      openapi_file: openapi.json
+      openapi_file: docs/openapi.json
       output_file: openapi.md
 
 markdown_extensions:
