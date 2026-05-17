@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Template API Gateway",
-    "description": "# Template API Gateway\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit.  \nSed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n\n## Features\n\n- Fast and reliable\n- Secure endpoints\n- Easy integration\n\n## Example Table\n\n| Method | Endpoint   | Description           |\n|--------|------------|-----------------------|\n| GET    | /hello     | Returns hello world   |\n| POST   | /goodbye   | Says goodbye         |\n\n> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n>\n> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n\nExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.  \nSed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n\n### Features\n\n- Fast and reliable\n- Secure endpoints\n- Easy integration\n\n### Example Table\n\n| Method | Endpoint   | Description           |\n|--------|------------|-----------------------|\n| GET    | /hello     | Returns hello world   |\n| POST   | /goodbye   | Says goodbye         |\n\n> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n>\n> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n\nExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n",
     "version": "1.0.0"
   },
   "servers": [
