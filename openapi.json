@@ -2,16 +2,28 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Template API Gateway",
-    "description": "Template API",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.  \nSed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n\n### Features\n\n- Fast and reliable\n- Secure endpoints\n- Easy integration\n\n### Example Table\n\n| Method | Endpoint   | Description           |\n|--------|------------|-----------------------|\n| GET    | /hello     | Returns hello world   |\n| POST   | /goodbye   | Says goodbye         |\n\n> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n>\n> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n\nExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n",
     "version": "1.0.0"
   },
+  "servers": [
+    {
+      "url": "https://api.example.com/v1",
+      "description": "Development"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Hello World",
+      "description": "Endpoints related to Hello World operations."
+    }
+  ],
   "paths": {
-    "/helloWorld": {
+    "/hello": {
       "get": {
         "tags": [
           "Hello World"
         ],
-        "summary": "Consulta hello world",
+        "summary": "Consulta Hello World",
         "description": "Endpoint para consultar hello world\n",
         "operationId": "get/hello-world",
         "parameters": [
@@ -23,7 +35,8 @@
             "schema": {
               "type": "string",
               "minLength": 1
-            }
+            },
+            "example": "123e4567-e89b-12d3-a456-426614174000"
           }
         ],
         "responses": {
@@ -224,10 +237,10 @@
           "timeoutInMillis": 14000,
           "type": "http_proxy",
           "httpMethod": "GET",
-          "uri": "http://application-name-lb-688f86f9aa9c196a.elb.sa-east-1.amazonaws.com:8080/helloWorld",
+          "uri": "http://application-name-lb-688f86f9aa9c196a.elb.sa-east-1.amazonaws.com:8080/hello",
           "responses": {
             "default": {
-              "statusCode": "500"
+              "statusCode": "503"
             }
           },
           "passthroughBehavior": "when_no_match",
@@ -251,7 +264,8 @@
         "schema": {
           "type": "string",
           "minLength": 1
-        }
+        },
+        "example": "123e4567-e89b-12d3-a456-426614174000"
       }
     },
     "schemas": {
@@ -617,6 +631,12 @@
       "responseTemplates": {
         "application/json": "{\n \"message\": \"Expired Token\" \n }"
       }
+    }
+  },
+  "DEFAULT_5XX": {
+    "statusCode": 503,
+    "responseTemplates": {
+      "application/json": "{\n \"message\": \"Sorry, for broke student reasons the servers are scheduled to operate only between 2pm and 8pm\",\n \"exceptionType\": \"Service Unavailable\" \n }"
     }
   },
   "x-amazon-apigateway-policy": {
