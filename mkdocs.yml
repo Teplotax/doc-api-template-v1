@@ -1,5 +1,5 @@
 site_name: Template API Docs
-site_url: https://teplotax.github.io/
+site_url: https://teplotax.github.io/doc-api-template-v1/
 
 nav:
   - Home: docs/README.md
