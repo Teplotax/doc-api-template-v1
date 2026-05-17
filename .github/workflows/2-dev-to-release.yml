@@ -19,29 +19,26 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
-
-      - name: Install MkDocs and plugins
+      - name: Generate Redoc site
         run: |
-          pip install mkdocs mkdocs-material
-
-      - name: Generate OpenAPI page
-        run: |
-          cat > docs/openapi.md << 'EOF'
-          # API Reference
-
-          <div id="redoc-container"></div>
-          <script src="https://cdn.redoc.ly/redoc/latest/bundles/redoc.standalone.js"></script>
-          <script>
-            Redoc.init('../openapi.json', {}, document.getElementById('redoc-container'));
-          </script>
+          mkdir -p site
+          cp openapi.json site/openapi.json
+          cat > site/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html>
+            <head>
+              <title>Template API Docs</title>
+              <meta charset="utf-8"/>
+              <meta name="viewport" content="width=device-width, initial-scale=1">
+              <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700" rel="stylesheet">
+              <style>body { margin: 0; padding: 0; }</style>
+            </head>
+            <body>
+              <redoc spec-url='openapi.json'></redoc>
+              <script src="https://cdn.redoc.ly/redoc/latest/bundles/redoc.standalone.js"></script>
+            </body>
+          </html>
           EOF
-
-      - name: Build site
-        run: mkdocs build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
