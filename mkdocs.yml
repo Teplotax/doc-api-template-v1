@@ -1,6 +1,8 @@
 site_name: Template API Docs
 site_url: https://teplotax.github.io/doc-api-template-v1/
 
+docs_dir: docs
+
 nav:
   - Home: README.md
   - API Reference:
@@ -11,10 +13,6 @@ theme:
 
 plugins:
   - search
-  - openapi_markdown:
-      enabled: true
-      openapi_file: openapi.json
-      output_file: openapi.md
 
 markdown_extensions:
   - admonition

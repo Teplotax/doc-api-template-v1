@@ -26,7 +26,11 @@ jobs:
 
       - name: Install MkDocs and plugins
         run: |
-          pip install mkdocs mkdocs-material mkdocs-openapi-markdown-plugin openapi-markdown
+          pip install mkdocs mkdocs-material openapi-markdown
+
+      - name: Generate OpenAPI markdown
+        run: |
+          openapi-markdown -i docs/openapi.json -o docs/openapi.md
 
       - name: Build site
         run: mkdocs build
