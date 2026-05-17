@@ -26,14 +26,18 @@ jobs:
 
       - name: Install MkDocs and plugins
         run: |
-          pip install mkdocs mkdocs-material mkdocs-swagger-ui-tag
+          pip install mkdocs mkdocs-material
 
       - name: Generate OpenAPI page
         run: |
           cat > docs/openapi.md << 'EOF'
           # API Reference
 
-          <swagger-ui src="../openapi.json"/>
+          <div id="redoc-container"></div>
+          <script src="https://cdn.redoc.ly/redoc/latest/bundles/redoc.standalone.js"></script>
+          <script>
+            Redoc.init('../openapi.json', {}, document.getElementById('redoc-container'));
+          </script>
           EOF
 
       - name: Build site
