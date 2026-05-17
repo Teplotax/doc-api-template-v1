@@ -6,7 +6,7 @@
     "version": "1.0.0"
   },
   "paths": {
-    "/helloWorld": {
+    "/hello": {
       "get": {
         "tags": [
           "Hello World"
@@ -224,7 +224,7 @@
           "timeoutInMillis": 14000,
           "type": "http_proxy",
           "httpMethod": "GET",
-          "uri": "http://application-name-lb-688f86f9aa9c196a.elb.sa-east-1.amazonaws.com:8080/helloWorld",
+          "uri": "http://application-name-lb-688f86f9aa9c196a.elb.sa-east-1.amazonaws.com:8080/hello",
           "responses": {
             "default": {
               "statusCode": "500"
