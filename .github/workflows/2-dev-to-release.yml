@@ -33,15 +33,13 @@ jobs:
               <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700" rel="stylesheet">
               <style>
                 body { margin: 0; padding: 0; }
-                .redoc-markdown h1,
-                .redoc-markdown h2,
-                .redoc-markdown h3 {
-                  margin-top: 12px;
-                  margin-bottom: 4px;
+                h1, h2, h3 {
+                  margin-top: 12px !important;
+                  margin-bottom: 4px !important;
                 }
-                .redoc-markdown p {
-                  margin-top: 4px;
-                  margin-bottom: 4px;
+                p {
+                  margin-top: 4px !important;
+                  margin-bottom: 4px !important;
                 }
               </style>
             </head>
