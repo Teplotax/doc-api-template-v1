@@ -2,9 +2,21 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Template API Gateway",
-    "description": "Template API",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.\nSed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n\nExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n",
     "version": "1.0.0"
   },
+  "servers": [
+    {
+      "url": "https://api.example.com/v1",
+      "description": "Development"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Hello World",
+      "description": "Endpoints related to Hello World operations."
+    }
+  ],
   "paths": {
     "/hello": {
       "get": {
@@ -23,7 +35,8 @@
             "schema": {
               "type": "string",
               "minLength": 1
-            }
+            },
+            "example": "123e4567-e89b-12d3-a456-426614174000"
           }
         ],
         "responses": {
@@ -227,7 +240,7 @@
           "uri": "http://application-name-lb-688f86f9aa9c196a.elb.sa-east-1.amazonaws.com:8080/hello",
           "responses": {
             "default": {
-              "statusCode": "500"
+              "statusCode": "503"
             }
           },
           "passthroughBehavior": "when_no_match",
@@ -251,7 +264,8 @@
         "schema": {
           "type": "string",
           "minLength": 1
-        }
+        },
+        "example": "123e4567-e89b-12d3-a456-426614174000"
       }
     },
     "schemas": {
