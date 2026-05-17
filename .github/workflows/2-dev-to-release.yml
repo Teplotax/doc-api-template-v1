@@ -26,11 +26,15 @@ jobs:
 
       - name: Install MkDocs and plugins
         run: |
-          pip install mkdocs mkdocs-material openapi-markdown
+          pip install mkdocs mkdocs-material mkdocs-swagger-ui-tag
 
-      - name: Generate OpenAPI markdown
+      - name: Generate OpenAPI page
         run: |
-          python -c "from openapi_markdown.generator import to_markdown; to_markdown('docs/openapi.json', 'docs/openapi.md')"
+          cat > docs/openapi.md << 'EOF'
+          # API Reference
+
+          <swagger-ui src="../openapi.json"/>
+          EOF
 
       - name: Build site
         run: mkdocs build
@@ -40,6 +44,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./site
+
   create:
     name: Create PR
     needs: [deploy]
