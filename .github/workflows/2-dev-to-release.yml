@@ -30,7 +30,7 @@ jobs:
 
       - name: Generate OpenAPI markdown
         run: |
-          python -m openapi_markdown -i docs/openapi.json -o docs/openapi.md
+          python -c "from openapi_markdown.generator import to_markdown; to_markdown('docs/openapi.json', 'docs/openapi.md')"
 
       - name: Build site
         run: mkdocs build
