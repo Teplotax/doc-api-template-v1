@@ -636,7 +636,7 @@
   "DEFAULT_5XX": {
     "statusCode": 503,
     "responseTemplates": {
-      "application/json": "{\n \"message\": \"Sorry, for broke student reasons the servers are scheduled to operate between 2pm and 8pm\",\n \"exceptionType\": \"Service Unavailable\" \n }"
+      "application/json": "{\n \"message\": \"Sorry, for broke student reasons the servers are scheduled to operate only between 2pm and 8pm\",\n \"exceptionType\": \"Service Unavailable\" \n }"
     }
   },
   "x-amazon-apigateway-policy": {
